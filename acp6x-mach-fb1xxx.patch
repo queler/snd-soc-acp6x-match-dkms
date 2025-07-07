@@ -1,0 +1,18 @@
+diff --git a/sound/soc/amd/yc/acp6x-mach.c b/home/amq102/build/snd-acp6x-fb1xxx/acp6x-mach.c
+index f7fbde1..ce9aca2 100644
+--- a/sound/soc/amd/yc/acp6x-mach.c
++++ b/home/amq102/build/snd-acp6x-fb1xxx/acp6x-mach.c
+@@ -45,6 +45,13 @@ static struct snd_soc_card acp6x_card = {
+ };
+ 
+ static const struct dmi_system_id yc_acp_quirk_table[] = {
++	{
++		.driver_data = &acp6x_card,
++		.matches = {
++			DMI_MATCH(DMI_BOARD_VENDOR, "HP"),
++			DMI_MATCH(DMI_PRODUCT_NAME, "Victus by HP Gaming Laptop 15-fb1xxx"),
++		}
++	},
+ 	{
+ 		.driver_data = &acp6x_card,
+ 		.matches = {
