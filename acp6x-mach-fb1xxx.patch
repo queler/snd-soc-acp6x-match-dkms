@@ -1,7 +1,7 @@
-diff --git a/sound/soc/amd/yc/acp6x-mach.c b/home/amq102/build/snd-acp6x-fb1xxx/acp6x-mach.c
+diff --git a/sound/soc/amd/yc/acp6x-mach.c.orig b/sound/soc/amd/yc/acp6x-mach.c
 index f7fbde1..ce9aca2 100644
---- a/sound/soc/amd/yc/acp6x-mach.c
-+++ b/home/amq102/build/snd-acp6x-fb1xxx/acp6x-mach.c
+--- a/sound/soc/amd/yc/acp6x-mach.c.orig
++++ b/sound/soc/amd/yc/acp6x-mach.c
 @@ -45,6 +45,13 @@ static struct snd_soc_card acp6x_card = {
  };
  
