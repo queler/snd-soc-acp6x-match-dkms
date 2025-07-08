@@ -6,9 +6,12 @@ echo "uname -r=$(uname -r)"
 kver="${kernelver:-$(uname -r)}"
 echo "using $kver"
 kgenver="${kver%%-*}"
-modpath="$(realpath 'sound/soc/amd/yc/')"
-ksrc=/usr/src/linux-headers-$kver
-dvar kernelver kver kengenver modpath ksrc
-echo "cleaning  make -C \"$ksrc\" M=\"$modpath\" clean"
-make -C "$ksrc" M="$modpath" clean 2>&1 |tee clean.log
-
+if [[ -d "$modpath" ]]; then
+	modpath="$(realpath 'sound/soc/amd/yc/')"
+	ksrc=/usr/src/linux-headers-$kver
+	dvar kernelver kver kengenver modpath ksrc
+	echo "cleaning  make -C \"$ksrc\" M=\"$modpath\" clean"
+	make -C "$ksrc" M="$modpath" clean 2>&1 |tee clean.log
+else
+	echo "nothing to clean"
+fi
