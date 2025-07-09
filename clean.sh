@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. buildenv
+. VARS
 if [[ -d "$modpath" ]]; then
 	realmodpath="$(realpath 'sound/soc/amd/yc/')"
 	ksrc=/usr/src/linux-headers-$kver

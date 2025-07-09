@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-. buildenv
+. VARS
 echo "unpacking"
 tar xvf "$tarball" linux-source-${kgenver}/${modpath}/${modsrc} --strip-components=1
 echo 'patching'
