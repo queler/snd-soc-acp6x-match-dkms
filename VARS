@@ -9,6 +9,7 @@ kgenver="${kver%%-*}"
 ksrc="/usr/src/linux-headers-$kver"
 patch_file="acp6x-mach-fb1xxx.patch"
 tarball=$(find "/usr/src/" -maxdepth 1 -iname "linux-source-${kgenver}.tar.*"|head -n1)
-modpath='sound/soc/amd/yc/'
+modpath="${BUILT_MODULE_LOCATION[0]}"
 modsrc="acp6x-mach.c"
-dvar kernelver kver kgenver patch_file tarball modpath modsrc
+dvar $(grep -E '^(export|declare)?\s*[a-zA-Z_][a-zA-Z0-9_]*=.*' VARS|cut -d= -f1)
+
