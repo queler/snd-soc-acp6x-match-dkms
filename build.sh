@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bashq
 . dkms.conf
 echo "unpacking"
-if [[ -d fake.tar ]]  then
+if [[ -f fake.tar ]]  then
 	echoing 'unpacking fake.tar for faster testing'
 	tar xvf "fake.tar." linux-source-${kgenver}/${modpath}/${modsrc} --strip-components=1
 else
@@ -9,6 +9,6 @@ else
 fi
 echo 'patching'
 patch  --verbose -p1   < acp6x-mach-fb1xxx.patch
-echo "making make -C \"$ksrc\" M=\"$modpath\"" modules
+
 make -C "$ksrc" M="$modpath" modules
 

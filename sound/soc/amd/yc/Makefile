@@ -1,1 +1,1 @@
-obj-m += snd_soc_acp6x_mach.o
+obj-m += snd-soc-acp6x-mach.o
