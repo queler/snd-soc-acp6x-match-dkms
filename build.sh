@@ -1,4 +1,4 @@
-#!/usr/bin/env bashq
+#!/usr/bin/env bash
 . dkms.conf
 echo "unpacking"
 if [[ -f "fake.tar ]]  then
@@ -10,5 +10,5 @@ fi
 echo 'patching'
 patch  --verbose -p1   < acp6x-mach-fb1xxx.patch
 
-make -C "$ksrc" M="$PWD" modules
+make -C "$ksrc" M="$modpath" modules
 
