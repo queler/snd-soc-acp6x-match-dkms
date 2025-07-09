@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 . dkms.conf
 echo "unpacking"
-tar xvf "$tarball" linux-source-${kgenver}/${modpath}/${modsrc} --strip-components=1
+if [[ -d fake.tar ]]  then
+	echoing 'unpacking fake.tar for faster testing'
+	tar xvf "fake.tar." linux-source-${kgenver}/${modpath}/${modsrc} --strip-components=1
+else
+	tar xvf "$tarball" linux-source-${kgenver}/${modpath}/${modsrc} --strip-components=1
+fi
 echo 'patching'
 patch  --verbose -p1   < acp6x-mach-fb1xxx.patch
-echo "making make -C \"$ksrc\" M=\"$modpath\""
+echo "making make -C \"$ksrc\" M=\"$modpath\"" modules
 make -C "$ksrc" M="$modpath" modules
 
