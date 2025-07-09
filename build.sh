@@ -1,9 +1,9 @@
 #!/usr/bin/env bashq
 . dkms.conf
 echo "unpacking"
-if [[ -f fake.tar ]]  then
+if [[ -f "fake.tar ]]  then
 	echoing 'unpacking fake.tar for faster testing'
-	tar xvf "fake.tar." linux-source-${kgenver}/${modpath}/${modsrc} --strip-components=1
+	tar xvf "fake.tar" linux-source-${kgenver}/${modpath}/${modsrc} --strip-components=1
 else
 	tar xvf "$tarball" linux-source-${kgenver}/${modpath}/${modsrc} --strip-components=1
 fi
