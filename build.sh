@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-. VARS
+. dkms.conf
 echo "unpacking"
 tar xvf "$tarball" linux-source-${kgenver}/${modpath}/${modsrc} --strip-components=1
 echo 'patching'

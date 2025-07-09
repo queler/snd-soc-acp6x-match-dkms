@@ -1,6 +1,5 @@
 #!/bin/bash
-
-. VARS
+. dkms.conf
 if [[ -d "$modpath" ]]; then
 	realmodpath="$(realpath 'sound/soc/amd/yc/')"
 	ksrc=/usr/src/linux-headers-$kver
