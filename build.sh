@@ -10,5 +10,5 @@ fi
 echo 'patching'
 patch  --verbose -p1   < acp6x-mach-fb1xxx.patch
 
-make -C "$ksrc" M="$modpath" modules
+make -C "$ksrc" M="$PWD" modules
 
