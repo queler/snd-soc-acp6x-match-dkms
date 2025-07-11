@@ -1,3 +1,4 @@
 #!/bin/bash
-sudo dkms remove -m snd-acp6x-fb1xxx -v 2.0 --all
-sudo rm -rv /usr/src/snd-acp6x-fb1xxx-2.0 &>/dev/null
+. dkms.conf
+sudo dkms remove -m "${PACKAGE_NAME}" -v "${PACKAGE_VERSION}" --all
+sudo rm -rv "/usr/src/${PACKAGE_NAME}-${PACKAGE_VERSION}" &>/dev/null

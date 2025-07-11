@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 . dkms.conf
 echo "unpacking"
-if [[ -f "../$(basename ${tarball%.*})" ]] ; then
-	echo 'unpacking cached tar for faster testing'
-	tar xvf "../$(basename ${tarball%.*})" linux-source-${kgenver}/${modpath}/$modsrc --strip-components=1
-else
-	tar xvf "$tarball" linux-source-${kgenver}/${modpath}/$modscr --strip-components=1
-fi
+#if [[ -f "../$(basename ${tarball%.*})" ]] ; then
+#	echo 'unpacking cached tar for faster testing'
+#	tar xvf "../$(basename ${tarball%.*})" linux-source-${kgenver}/${modpath}/$modsrc --strip-components=1
+#else
+	tar xvf "$tarball" linux-source-${kgenver}/${modpath}/$modsrc  --strip-components=1
+#fi
 echo 'patching'
 patch  --verbose -p1   < acp6x-mach-fb1xxx.patch
 
-make -C "$ksrc" M="$PWD/$modpath" modules
+make -C "$ksrc" M="$PWD/$modpath/$modsrc" modules
